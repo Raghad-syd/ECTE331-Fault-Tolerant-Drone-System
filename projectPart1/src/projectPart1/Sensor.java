@@ -14,11 +14,11 @@ public class Sensor {
 	public int sensorRead() throws SensorReadException {
 		int chance = random.nextInt(99); 
 		if(chance < 15) {
-			throw new SensorReadException(sensorID + "Failed!");
+			throw new SensorReadException(sensorID + "Failed!"); 
 		} else if(chance < 30) {
-			return 200 + random.nextInt(99);
+			return 200 + random.nextInt(99); //corrupted value
 		} else {
-			return random.nextInt(200);
+			return random.nextInt(200); //return value in range
 		}
 		
 	} public String getSensorID() {
