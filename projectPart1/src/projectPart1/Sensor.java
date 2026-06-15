@@ -3,25 +3,27 @@ package projectPart1;
 import java.util.Random;
 
 public class Sensor {
-	private String sensorID;
-	private Random random;
+	private String sensorID; //Variable to store the sensor ID
+	private Random random; //Variable to generate a random sensor value
 	
+	//Constructor
 	public Sensor(String sensorID) {
 		this.sensorID = sensorID;
 		random = new Random();
 	}
 	
 	public int sensorRead() throws SensorReadException {
-		int chance = random.nextInt(99); 
+		int chance = random.nextInt(99); //Variable to store the random sensor value
 		if(chance < 15) {
-			throw new SensorReadException(sensorID + "Failed!"); 
+			throw new SensorReadException(sensorID + " Failed!");  //Sensor Failure
 		} else if(chance < 30) {
-			return 200 + random.nextInt(99); //corrupted value
+			return 201 + random.nextInt(99); //corrupted value
 		} else {
-			return random.nextInt(200); //return value in range
+			return random.nextInt(201); //return value in range
 		}
 		
-	} public String getSensorID() {
+	} //getter for the sensor ID
+	public String getSensorID() {
 		return sensorID;
 	}
 
